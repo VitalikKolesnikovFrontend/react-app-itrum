@@ -1,0 +1,23 @@
+.titleUser {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--grayspace-layout-gray-10, #ebecef);
+  border-bottom: 1px solid var(--grayspace-layout-gray-10, #ebecef);
+  background: var(--grayspace-layout-gray-5, #f8f8fa);
+  margin-top: 20px;
+  span {
+    width: 100%;
+    color: #737680;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+  }
+}

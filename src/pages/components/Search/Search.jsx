@@ -41,7 +41,7 @@ const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
         readOnly
       />
       <span className="text__search">
-        из {`${Math.ceil(posts.length / limit)}`}
+        {/* из {`${Math.ceil(posts.length / limit)}`} */}
       </span>
       <button onClick={prevPage} className="button__search">
         <svg

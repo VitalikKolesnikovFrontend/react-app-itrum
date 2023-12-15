@@ -1,0 +1,13 @@
+.input__user {
+  display: flex;
+  width: 320px;
+  height: 40px;
+  padding: 8px 12px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--Grayspace-Layout-Gray30, #d0d3da);
+  background: var(--Grayspace-Layout-White, #fff);
+  margin-top: 24px;
+  margin-left: 720px;
+}
