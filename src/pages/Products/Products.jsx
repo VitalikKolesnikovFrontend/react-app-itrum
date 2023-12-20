@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
-import Button from "../components/Button/Button";
-import MenuItems from "../components/MenuItems/MenuItems";
-import Search from "../components/Search/Search";
-import Post from "../components/Posts/Post";
-import ModalDelete from "../components/ModalDelete/ModalDelete";
+import Button from "../../components/Button/Button";
+import MenuItems from "../../components/MenuItems/MenuItems";
+import Search from "../../components/Search/Search";
+import Post from "../../components/Posts/Post";
+import ModalDelete from "../../components/ModalDelete/ModalDelete";
 import productsList from "../Products/ProductsList";
 import "./Products.scss";
 import { useEffect, useState } from "react";
 import Modal from "../Modal/Modal";
-import PostForm from "../components/PostForm/PostForm";
-import PostLists from "../components/PostLists/PostLists";
+import PostForm from "../../components/PostForm/PostForm";
+import PostLists from "../../components/PostLists/PostLists";
 
 const Products = () => {
   const [posts, setPosts] = useState([...productsList]);
@@ -17,7 +17,7 @@ const Products = () => {
   const [checkedPosts, setCheckedPosts] = useState([]);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
-  const [totalPages, setTotalPages] = useState(3);
+  const [totalPages] = useState(3);
 
   const changePage = (page) => {
     setPage(page);
@@ -46,16 +46,16 @@ const Products = () => {
   }, []);
 
   const onChangeHandler = (e) => {
-    const ischecked = e.target.checked;
+    const isСhecked = e.target.checked;
     const dataid = e.target.dataset.id;
     if (dataid === "checkall") {
-      if (ischecked) {
+      if (isСhecked) {
         setCheckedPosts(posts);
       } else {
         setCheckedPosts([]);
       }
     } else {
-      if (ischecked) {
+      if (isСhecked) {
         const newItem = posts.filter((post) => {
           return post.id == dataid;
         })[0];

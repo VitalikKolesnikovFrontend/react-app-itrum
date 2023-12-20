@@ -18,7 +18,7 @@ const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
       <label className="label">Показывать</label>
       <select
         onChange={(e) => {
-          setLimit(Number(e.target.value));
+          setLimit(+e.target.value);
           setPage(1);
         }}
         value={limit}

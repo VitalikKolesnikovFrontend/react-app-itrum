@@ -1,5 +1,5 @@
 // import productsList from "../Products/ProductsList";
-import "./ModalDelete.scss";
+import styles from "./ModalDelete.module.scss";
 const ModalDelete = ({ checkedPosts, setCheckedPosts, remove }) => {
   const removeCheckedHandler = () => {
     remove(checkedPosts);
@@ -11,8 +11,8 @@ const ModalDelete = ({ checkedPosts, setCheckedPosts, remove }) => {
   };
 
   return (
-    <div className="modalDelete">
-      <button onClick={closeModal} className="button__modalDelete">
+    <div className={styles.modalDelete}>
+      <button onClick={closeModal} className={styles.button__modalDelete}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="12"
@@ -31,12 +31,12 @@ const ModalDelete = ({ checkedPosts, setCheckedPosts, remove }) => {
           </defs>
         </svg>
       </button>
-      <div className="text__modalDelete">
+      <div className={styles.text__modalDelete}>
         Количество выбранных позиций: {checkedPosts.length}
       </div>
-      <div className="modal__delete">
+      <div className={styles.modal__delete}>
         <svg
-          className="delete__btn"
+          className={styles.delete__btn}
           xmlns="http://www.w3.org/2000/svg"
           width="17"
           height="16"
@@ -48,7 +48,7 @@ const ModalDelete = ({ checkedPosts, setCheckedPosts, remove }) => {
             fill="#999999"
           />
         </svg>
-        <button onClick={removeCheckedHandler} className="delete__btn">
+        <button onClick={removeCheckedHandler} className={styles.delete__btn}>
           Удалить
         </button>
       </div>

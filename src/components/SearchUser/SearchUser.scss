@@ -2,7 +2,7 @@
   display: flex;
   width: 320px;
   height: 40px;
-  padding: 8px 12px;
+  padding: 8px 38px;
   align-items: center;
   gap: 8px;
   border-radius: 8px;
@@ -10,4 +10,17 @@
   background: var(--Grayspace-Layout-White, #fff);
   margin-top: 24px;
   margin-left: 720px;
+}
+.searchUser {
+  position: relative;
+}
+.iconSearch {
+  position: absolute;
+  top: 21px;
+  left: 730px;
+}
+.iconDelete {
+  position: absolute;
+  top: 21px;
+  left: 1090px;
 }
