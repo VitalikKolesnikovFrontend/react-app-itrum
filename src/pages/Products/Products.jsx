@@ -2,7 +2,6 @@
 import Button from "../../components/Button/Button";
 import MenuItems from "../../components/MenuItems/MenuItems";
 import Search from "../../components/Search/Search";
-import Post from "../../components/Posts/Post";
 import ModalDelete from "../../components/ModalDelete/ModalDelete";
 import productsList from "../Products/ProductsList";
 import "./Products.scss";
@@ -17,7 +16,7 @@ const Products = () => {
   const [checkedPosts, setCheckedPosts] = useState([]);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
-  const [totalPages] = useState(3);
+  const [totalPages, setTotalPage] = useState(3);
 
   const changePage = (page) => {
     setPage(page);
@@ -47,8 +46,8 @@ const Products = () => {
 
   const onChangeHandler = (e) => {
     const isСhecked = e.target.checked;
-    const dataid = e.target.dataset.id;
-    if (dataid === "checkall") {
+    const dataId = e.target.dataset.id;
+    if (dataId === "checkall") {
       if (isСhecked) {
         setCheckedPosts(posts);
       } else {
@@ -57,11 +56,11 @@ const Products = () => {
     } else {
       if (isСhecked) {
         const newItem = posts.filter((post) => {
-          return post.id == dataid;
+          return post.id == dataId;
         })[0];
         setCheckedPosts([...checkedPosts, newItem]);
       } else {
-        const resultFilter = checkedPosts.filter((i) => i.id != dataid);
+        const resultFilter = checkedPosts.filter((i) => i.id != dataId);
         setCheckedPosts(resultFilter);
       }
     }

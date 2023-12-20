@@ -1,8 +1,15 @@
-import styles from "./Search.module.scss";
-const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
+import styles from "./Pagination.module.scss";
+const Pagination = ({
+  page,
+  limit,
+  setPage,
+  setLimit,
+  changePage,
+  userInfo,
+}) => {
   const nextPage = (e) => {
     e.preventDefault();
-    if (page < Math.ceil(posts.length / limit)) {
+    if (page < Math.ceil(userInfo.length / limit)) {
       changePage(+page + 1);
     }
   };
@@ -12,7 +19,6 @@ const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
       changePage(+page - 1);
     }
   };
-
   return (
     <form className={styles.search}>
       <label className={styles.label}>Показывать</label>
@@ -21,10 +27,10 @@ const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
           setLimit(+e.target.value);
           setPage(1);
         }}
-        value={limit}
         className={styles.select}
         id="items"
         name="items"
+        value={limit}
       >
         <option value="10">10</option>
         <option value="20">20</option>
@@ -41,7 +47,7 @@ const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
         readOnly
       />
       <span className={styles.text__search}>
-        из {`${Math.ceil(posts.length / limit)}`}
+        из {`${Math.ceil(userInfo.length / limit)}`}
       </span>
       <button onClick={prevPage} className={styles.button__search}>
         <svg
@@ -76,4 +82,5 @@ const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
     </form>
   );
 };
-export default Search;
+
+export default Pagination;
