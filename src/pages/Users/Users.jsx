@@ -9,6 +9,7 @@ import Pagination from "../../components/Pagination/Pagination";
 const Users = () => {
   const [userInfo] = useState([...usersList]);
   const [searchValue, setSearchValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
   const changePage = (page) => {
@@ -27,7 +28,11 @@ const Users = () => {
 
   return (
     <div className="users">
-      <SearchUser setSearchValue={setSearchValue} />
+      <SearchUser
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        setSearchValue={setSearchValue}
+      />
       <Pagination
         changePage={changePage}
         page={page}
