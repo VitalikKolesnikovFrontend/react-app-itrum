@@ -31,30 +31,30 @@ const Nav = () => {
           <IconCountries />
           <span className="menu__link">Города</span>
         </NavLink>
-        <li className="menu__item">
+        <NavLink to="/brands" className="menu__item">
           <IconBrands />
           <span className="menu__link">Бренды</span>
-        </li>
-        <li className="menu__item">
+        </NavLink>
+        <NavLink to="/protocols" className="menu__item">
           <IconProtocols />
           <span className="menu__link">Протоколы</span>
-        </li>
-        <li className="menu__item">
+        </NavLink>
+        <NavLink to="/orders" className="menu__item">
           <IconOrders />
           <span className="menu__link">Заказы</span>
-        </li>
-        <li className="menu__item">
+        </NavLink>
+        <NavLink to="/banners" className="menu__item">
           <IconBanners />
           <span className="menu__link">Баннеры</span>
-        </li>
-        <li className="menu__item">
+        </NavLink>
+        <NavLink to="/seminars" className="menu__item">
           <IconSeminars />
           <span className="menu__link">Семинары</span>
-        </li>
-        <li className="menu__item">
+        </NavLink>
+        <NavLink to="/code" className="menu__item">
           <IconCode />
           <span className="menu__link">Промокоды</span>
-        </li>
+        </NavLink>
       </ul>
     </nav>
   );
