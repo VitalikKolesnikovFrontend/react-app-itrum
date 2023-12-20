@@ -1,4 +1,4 @@
-import "./Search.scss";
+import styles from "./Search.module.scss";
 const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
   const nextPage = (e) => {
     e.preventDefault();
@@ -14,15 +14,15 @@ const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
   };
 
   return (
-    <form className="search">
-      <label className="label">Показывать</label>
+    <form className={styles.search}>
+      <label className={styles.label}>Показывать</label>
       <select
         onChange={(e) => {
           setLimit(+e.target.value);
           setPage(1);
         }}
         value={limit}
-        className="select"
+        className={styles.select}
         id="items"
         name="items"
       >
@@ -30,20 +30,20 @@ const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
         <option value="20">20</option>
         <option value="30">30</option>
       </select>
-      <label className="label">Страница</label>
+      <label className={styles.label}>Страница</label>
       <input
         value={page}
         onChange={(e) => setPage(e.target.value)}
-        className="input__search"
+        className={styles.input__search}
         type="number"
         name="page"
         min="1"
         readOnly
       />
-      <span className="text__search">
+      <span className={styles.text__search}>
         {/* из {`${Math.ceil(posts.length / limit)}`} */}
       </span>
-      <button onClick={prevPage} className="button__search">
+      <button onClick={prevPage} className={styles.button__search}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -58,7 +58,7 @@ const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
           />
         </svg>
       </button>
-      <button onClick={nextPage} className="button__search">
+      <button onClick={nextPage} className={styles.button__search}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

@@ -1,12 +1,13 @@
-import "./User.scss";
+import styles from "./User.module.scss";
+
 const User = ({ user }) => {
   return (
-    <div className="user">
-      <span>
+    <div className={styles.user}>
+      <span className={styles.userItems}>
         {user.name} {user.lastName}
       </span>
-      <span>{user.email}</span>
-      <span>{user.phone}</span>
+      <span className={styles.userItems}>{user.email}</span>
+      <span className={styles.userItems}>{user.phone}</span>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import Post from "../Posts/Post";
-import "./PostList.scss";
+import styles from "./PostList.module.scss";
 const PostLists = ({
   displayPosts,
   onChangeHandler,
@@ -11,14 +11,14 @@ const PostLists = ({
     return (
       <div className="posts__products">
         {displayPosts.map((item) => (
-          <div className="postList" key={item.id}>
+          <div className={styles.postList} key={item.id}>
             <input
               onChange={onChangeHandler}
               checked={checkedPosts.includes(item)}
               data-id={item.id}
               id={item}
               value={item.id}
-              className="input__post"
+              className={styles.input__post}
               type="checkbox"
             />
             <Post key={item.id} post={item} />

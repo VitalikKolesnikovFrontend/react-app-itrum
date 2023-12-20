@@ -1,7 +1,7 @@
-import "./TitleUser.scss";
+import styles from "./TitleUser.module.scss";
 const TitleUser = () => {
   return (
-    <div className="titleUser">
+    <div className={styles.titleUser}>
       <span>ФИ</span>
       <span>Почта</span>
       <span>Телефон</span>
