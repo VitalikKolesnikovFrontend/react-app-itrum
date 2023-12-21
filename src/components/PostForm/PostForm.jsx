@@ -1,4 +1,4 @@
-import "./PostForm.scss";
+import styles from "./PostForm.module.scss";
 import { useState } from "react";
 const PostForm = ({ create, setVisible }) => {
   const [post, setPost] = useState({
@@ -32,26 +32,26 @@ const PostForm = ({ create, setVisible }) => {
   return (
     <form
       onClick={(e) => e.stopPropagation()}
-      className="form__modal"
+      className={styles.form__modal}
       action="submit"
     >
-      <div className="buttons__modal">
-        <button onClick={closeModal} className="button__modal">
+      <div className={styles.form__modal}>
+        <button onClick={closeModal} className={styles.button__modal}>
           Удалить
         </button>
-        <button onClick={addPost} className="button__modal button__modal_sec">
+        <button onClick={addPost} className={styles.button__modal_sec}>
           Сохранить
         </button>
       </div>
-      <p className="modal__text">Начисление кешбека с покупки</p>
+      <p className={styles.modal__text}>Начисление кешбека с покупки</p>
       <input
         type="number"
         value={post.cashback}
         onChange={(e) => setPost({ ...post, cashback: e.target.value })}
-        className="input__modal"
+        className={styles.input__modal}
       ></input>
-      <p className="modal__text">Категория</p>
-      <div className="select__modal">
+      <p className={styles.modal__text}>Категория</p>
+      <div className={styles.select__modal}>
         <select
           value={post.categories}
           onChange={(e) => setPost({ ...post, categories: e.target.value })}
@@ -66,8 +66,8 @@ const PostForm = ({ create, setVisible }) => {
           </option>
         </select>
       </div>
-      <p className="modal__text">Подкатегория</p>
-      <div className="select__modal">
+      <p className={styles.modal__text}>Подкатегория</p>
+      <div className={styles.select__modal}>
         <select
           value={post.subcategory}
           onChange={(e) => setPost({ ...post, subcategory: e.target.value })}
@@ -82,8 +82,8 @@ const PostForm = ({ create, setVisible }) => {
           <option value="Кислотные пилинги">Кислотные пилинги</option>
         </select>
       </div>
-      <p className="modal__text">Бренд</p>
-      <div className="select__modal">
+      <p className={styles.modal__text}>Бренд</p>
+      <div className={styles.select__modal}>
         <select
           value={post.brand}
           onChange={(e) => setPost({ ...post, brand: e.target.value })}

@@ -15,6 +15,7 @@ const SearchUser = ({ setSearchValue, setInputValue, inputValue }) => {
     <div className={styles.searchUser}>
       <input
         onChange={handleInputChange}
+        type="text"
         className={styles.input__user}
         placeholder="Поиск"
         value={inputValue}
