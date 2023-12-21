@@ -8,6 +8,9 @@ const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
       changePage(+page + 1);
     }
   };
+  // export const getPageCount = (totalItems, limit) => {
+  //   return Math.ceil(totalItems / limit);
+  // };
   const prevPage = (e) => {
     e.preventDefault();
     if (page > 1) {

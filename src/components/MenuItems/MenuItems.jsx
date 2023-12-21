@@ -5,9 +5,9 @@ const MenuItems = ({ onChangeHandler, checkedPosts, posts }) => {
       <input
         onChange={onChangeHandler}
         checked={checkedPosts.length === posts.length}
-        data-id="checkall"
-        id="checkall"
-        value="checkall"
+        data-id="checkAll"
+        id="checkAll"
+        value="checkAll"
         className={styles.input__menuItems}
         type="checkbox"
       ></input>

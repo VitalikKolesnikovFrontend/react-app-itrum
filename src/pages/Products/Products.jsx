@@ -16,7 +16,6 @@ const Products = () => {
   const [checkedPosts, setCheckedPosts] = useState([]);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
-  const [totalPages, setTotalPage] = useState(3);
 
   const changePage = (page) => {
     setPage(page);
@@ -47,7 +46,7 @@ const Products = () => {
   const onChangeHandler = (e) => {
     const isСhecked = e.target.checked;
     const dataId = e.target.dataset.id;
-    if (dataId === "checkall") {
+    if (dataId === "checkAll") {
       if (isСhecked) {
         setCheckedPosts(posts);
       } else {
@@ -78,7 +77,6 @@ const Products = () => {
         setLimit={setLimit}
         setPage={setPage}
         changePage={changePage}
-        totalPages={totalPages}
         posts={posts}
       />
       <Button onClick={() => setOpenModal(true)}>Добавить акцию</Button>
@@ -106,10 +104,3 @@ const Products = () => {
 };
 
 export default Products;
-
-// const addCheckedPost = (post) => {
-//   setCheckedPosts([...checkedPosts, post]);
-// };
-// const removeCheckedPost = (post) => {
-//   setCheckedPosts(checkedPosts.filter((i) => i.id !== post.id));
-// };

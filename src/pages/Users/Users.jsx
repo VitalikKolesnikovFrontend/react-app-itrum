@@ -3,7 +3,7 @@ import TitleUser from "../../components/TitleUser/TitleUser";
 import User from "../../components/User/User";
 import usersList from "./UsersList";
 import SearchUser from "../../components/SearchUser/SearchUser";
-import "./Users.scss";
+import styles from "./Users.module.scss";
 import Pagination from "../../components/Pagination/Pagination";
 
 const Users = () => {
@@ -42,7 +42,7 @@ const Users = () => {
         userInfo={userInfo}
       />
       <TitleUser />
-      <div className="posts__user">
+      <div className={styles.posts__user}>
         {filteredUsers.map((item) => (
           <User user={item} userInfo={userInfo} key={item.phone} />
         ))}
