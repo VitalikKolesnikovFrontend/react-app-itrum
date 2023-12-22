@@ -29,9 +29,11 @@ const Users = () => {
       user.lastName ? user.lastName.toLowerCase() : ""
     }`;
     return (
-      fullName.includes(searchValueLowerCase) ||
-      (user.email && user.email.toLowerCase().includes(searchValueLowerCase)) ||
-      (user.phone && user.phone.toLowerCase().includes(searchValueLowerCase))
+      fullName.includes(searchValueLowerCase.trim()) ||
+      (user.email &&
+        user.email.toLowerCase().includes(searchValueLowerCase.trim())) ||
+      (user.phone &&
+        user.phone.toLowerCase().includes(searchValueLowerCase.trim()))
     );
   });
 
