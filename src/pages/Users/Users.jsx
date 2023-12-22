@@ -19,14 +19,27 @@ const Users = () => {
   // const filteredUsers = userInfo.filter((user) => {
   //   return user.name.toLowerCase().includes(searchValue.toLowerCase());
 
-  const filteredUsers = userInfo.filter((user) =>
-    user.name.toLowerCase().includes(searchValue.toLowerCase())
-  );
+  // const filteredUsers = userInfo.filter((user) =>
+  //   user.name.toLowerCase().includes(searchValue.toLowerCase())
+  // );
+
+  const filteredUsers = userInfo.filter((user) => {
+    const searchValueLowerCase = searchValue.toLowerCase();
+    const fullName = `${user.name.toLowerCase()} ${
+      user.lastName ? user.lastName.toLowerCase() : ""
+    }`;
+    return (
+      fullName.includes(searchValueLowerCase) ||
+      (user.email && user.email.toLowerCase().includes(searchValueLowerCase)) ||
+      (user.phone && user.phone.toLowerCase().includes(searchValueLowerCase))
+    );
+  });
+
   const displayPosts = filteredUsers.slice((page - 1) * limit, page * limit);
 
   useEffect(() => {
     setTotalPage(filteredUsers);
-  }, [filteredUsers]);
+  }, []);
 
   return (
     <div className="users">
@@ -42,13 +55,15 @@ const Users = () => {
         setLimit={setLimit}
         setPage={setPage}
         userInfo={userInfo}
-        totalPage={totalPage}
+        totalPage={filteredUsers}
       />
       <TitleUser />
       <UserList
         displayPosts={displayPosts}
         userInfo={userInfo}
         filteredUsers={filteredUsers}
+        page={page}
+        changePage={changePage}
       />
     </div>
   );
