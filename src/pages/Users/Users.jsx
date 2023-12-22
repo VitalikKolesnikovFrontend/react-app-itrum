@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TitleUser from "../../components/TitleUser/TitleUser";
-import User from "../../components/User/User";
 import usersList from "./UsersList";
 import SearchUser from "../../components/SearchUser/SearchUser";
-import styles from "./Users.module.scss";
-import Pagination from "../../components/Pagination/Pagination";
+import Search from "../../components/Search/Search";
+import UserList from "../../components/UserList/UserList";
 
 const Users = () => {
   const [userInfo] = useState([...usersList]);
@@ -12,19 +11,22 @@ const Users = () => {
   const [inputValue, setInputValue] = useState("");
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
+  const [totalPage, setTotalPage] = useState(userInfo);
+
   const changePage = (page) => {
     setPage(page);
   };
-
   // const filteredUsers = userInfo.filter((user) => {
   //   return user.name.toLowerCase().includes(searchValue.toLowerCase());
-  const startIndex = (page - 1) * limit;
-  const endIndex = page * limit;
-  const filteredUsers = userInfo
-    .filter((user) =>
-      user.name.toLowerCase().includes(searchValue.toLowerCase())
-    )
-    .slice(startIndex, endIndex);
+
+  const filteredUsers = userInfo.filter((user) =>
+    user.name.toLowerCase().includes(searchValue.toLowerCase())
+  );
+  const displayPosts = filteredUsers.slice((page - 1) * limit, page * limit);
+
+  useEffect(() => {
+    setTotalPage(filteredUsers);
+  }, [filteredUsers]);
 
   return (
     <div className="users">
@@ -33,22 +35,21 @@ const Users = () => {
         setInputValue={setInputValue}
         setSearchValue={setSearchValue}
       />
-      <Pagination
+      <Search
         changePage={changePage}
         page={page}
-        setPage={setPage}
         limit={limit}
         setLimit={setLimit}
+        setPage={setPage}
         userInfo={userInfo}
+        totalPage={totalPage}
       />
       <TitleUser />
-      <div className={styles.posts__user}>
-        {filteredUsers.map((item) => (
-          <User user={item} userInfo={userInfo} key={item.phone} />
-        ))}
-      </div>
-
-      {/* <User userInfo={userInfo} /> */}
+      <UserList
+        displayPosts={displayPosts}
+        userInfo={userInfo}
+        filteredUsers={filteredUsers}
+      />
     </div>
   );
 };

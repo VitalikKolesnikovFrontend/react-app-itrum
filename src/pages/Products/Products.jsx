@@ -16,6 +16,7 @@ const Products = () => {
   const [checkedPosts, setCheckedPosts] = useState([]);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
+  const [totalPage] = useState(posts);
 
   const changePage = (page) => {
     setPage(page);
@@ -78,6 +79,7 @@ const Products = () => {
         setPage={setPage}
         changePage={changePage}
         posts={posts}
+        totalPage={totalPage}
       />
       <Button onClick={() => setOpenModal(true)}>Добавить акцию</Button>
       <MenuItems

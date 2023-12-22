@@ -35,7 +35,7 @@ const PostForm = ({ create, setVisible }) => {
       className={styles.form__modal}
       action="submit"
     >
-      <div className={styles.form__modal}>
+      <div className={styles.buttons__modal}>
         <button onClick={closeModal} className={styles.button__modal}>
           Удалить
         </button>

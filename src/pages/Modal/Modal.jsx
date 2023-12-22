@@ -1,8 +1,8 @@
-import "./Modal.scss";
+import styles from "./Modal.module.scss";
 const Modal = ({ children, visible, setVisible }) => {
-  const rootClasses = ["modal"];
+  const rootClasses = [styles.modal];
   if (visible) {
-    rootClasses.push("active");
+    rootClasses.push(styles.active);
   }
   return (
     <div onClick={() => setVisible(false)} className={rootClasses.join(" ")}>

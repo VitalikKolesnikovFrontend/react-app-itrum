@@ -1,10 +1,10 @@
 import styles from "./Search.module.scss";
 import LeftArrow from "../../assets/Icons/arrow-left.svg?react";
 import RightArrow from "../../assets/Icons/arrow-right.svg?react";
-const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
+const Search = ({ page, limit, setPage, setLimit, changePage, totalPage }) => {
   const nextPage = (e) => {
     e.preventDefault();
-    if (page < Math.ceil(posts.length / limit)) {
+    if (page < Math.ceil(totalPage.length / limit)) {
       changePage(+page + 1);
     }
   };
@@ -46,7 +46,7 @@ const Search = ({ page, limit, setPage, setLimit, changePage, posts }) => {
         readOnly
       />
       <span className={styles.text__search}>
-        из {`${Math.ceil(posts.length / limit)}`}
+        из {`${Math.ceil(totalPage.length / limit)}`}
       </span>
       <button onClick={prevPage} className={styles.button__search}>
         <LeftArrow />
