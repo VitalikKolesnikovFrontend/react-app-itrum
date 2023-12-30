@@ -3,7 +3,7 @@ import Button from "../../components/Button/Button";
 import MenuItems from "../../components/MenuItems/MenuItems";
 import Search from "../../components/Search/Search";
 import ModalDelete from "../../components/ModalDelete/ModalDelete";
-import productsList from "../Products/ProductsList";
+import productsList from "./ProductsList";
 import "./Products.scss";
 import { useEffect, useState } from "react";
 import Modal from "../Modal/Modal";
